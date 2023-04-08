@@ -278,7 +278,7 @@ export class Kazagumo extends EventEmitter {
 
     const isUrl = /^https?:\/\/.*/.test(query);
 
-    const result = await node.rest.resolve(!isUrl ? `${source}search:${query}` : query).catch((_) => null);
+    const result = await node.rest.resolve(!isUrl ? `spsearch:${query}` : query).catch((_) => null);
     if (!result) return this.buildSearch(undefined, [], 'SEARCH');
     this.emit(Events.Debug, `Searched ${query}; Track results: ${result.tracks.length}`);
 
